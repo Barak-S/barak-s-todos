@@ -4,13 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const todo = document.querySelector('.todo-input');
     const todoButton = document.querySelector('.todo-button');
     const todoList = document.querySelector('.todo-list');
-    const filterOption = document.querySelector('select')
+    const filterOption = document.querySelector('#filter-todo')
+
+    console.log(filterOption)
 
 
     // event listeners
     todoButton.addEventListener('click', addTodo)
     todoList.addEventListener('click', deleteCheck)
-    filterOption.addEventListener('click', filterTodos)
+    filterOption.addEventListener('change', filterTodos)
 
 
     // functions
@@ -51,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function filterTodos(e){
-        console.log(e.target.value)
         const todos = todoList.children
         var arr = Array.prototype.slice.call( todos )
         arr.map((todo)=>{
